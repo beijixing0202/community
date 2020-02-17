@@ -16,9 +16,4 @@ public class IndexController {
     public String index(){
         return "index";
     }
-    @RequestMapping("first")
-    @ResponseBody
-    public String getFirst(){
-        return "first";
-    }
 }
