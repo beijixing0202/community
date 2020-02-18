@@ -1,4 +1,4 @@
-package net.bill99.community.community.model;
+package net.bill99.community.community.entity;
 
 /**
  * @Author: wsy

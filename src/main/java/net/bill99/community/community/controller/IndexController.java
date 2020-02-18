@@ -1,12 +1,10 @@
 package net.bill99.community.community.controller;
 
 import net.bill99.community.community.mapper.UserMapper;
-import net.bill99.community.community.model.User;
+import net.bill99.community.community.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

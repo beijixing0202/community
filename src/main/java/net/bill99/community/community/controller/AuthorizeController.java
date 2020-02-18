@@ -3,17 +3,15 @@ package net.bill99.community.community.controller;
 import net.bill99.community.community.dto.AccessTokenDto;
 import net.bill99.community.community.dto.GithubUser;
 import net.bill99.community.community.mapper.UserMapper;
-import net.bill99.community.community.model.User;
+import net.bill99.community.community.entity.User;
 import net.bill99.community.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 

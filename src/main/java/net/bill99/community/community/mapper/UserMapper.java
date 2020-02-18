@@ -1,6 +1,6 @@
 package net.bill99.community.community.mapper;
 
-import net.bill99.community.community.model.User;
+import net.bill99.community.community.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
