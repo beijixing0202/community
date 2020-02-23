@@ -1,5 +1,6 @@
 package net.bill99.community.community.server;
 
+import net.bill99.community.community.dto.PaginationDto;
 import net.bill99.community.community.dto.QuestionDto;
 import net.bill99.community.community.entity.Question;
 import net.bill99.community.community.entity.User;
@@ -23,8 +24,19 @@ public class QuestionDtoServer {
     private UserMapper userMapper;
     @Autowired
     private QuestionMapper questionMapper;
-    public List<QuestionDto> list() {
-        List<Question> questions = questionMapper.list();
+    public PaginationDto list(Integer page, Integer size) {
+        PaginationDto paginationDto = new PaginationDto();
+        Integer totalCount = questionMapper.count();
+        paginationDto.setPagination(totalCount,page,size);
+        if(page<1){
+            page = 1;
+        }
+        if(page>paginationDto.getTotalPage()){
+            page = paginationDto.getTotalPage();
+        }
+        //size*(page-1)
+        Integer offSet = size*(page-1);
+        List<Question> questions = questionMapper.list(offSet,size);
         List<QuestionDto> questionDtoList = new ArrayList<>();
         for(Question question : questions){
             User user = userMapper.findById(question.getCreator());
@@ -33,6 +45,7 @@ public class QuestionDtoServer {
             questionDto.setUser(user);
             questionDtoList.add(questionDto);
         }
-        return questionDtoList;
+        paginationDto.setQuestions(questionDtoList);
+        return paginationDto;
     }
 }
