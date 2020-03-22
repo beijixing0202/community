@@ -29,7 +29,7 @@ public class IndexController {
                         Model model,
                         @RequestParam(name="page",defaultValue = "1") Integer page,
                         @RequestParam(name="size",defaultValue = "5") Integer size){
-        Cookie[] cookies = request.getCookies();
+        /*Cookie[] cookies = request.getCookies();
         if (cookies != null & cookies.length != 0)
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
@@ -40,7 +40,7 @@ public class IndexController {
                     }
                     break;
                 }
-            }
+            }*/
         PaginationDto pagination = questionDtoServer.list(page,size);
         model.addAttribute("pagination",pagination);
         return "index";
